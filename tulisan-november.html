@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>November Recap - Tulisan Jati</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Manrope', 'sans-serif'] },
+                    colors: {
+                        'pop-bg': '#FFFDF5',
+                        'pop-dark': '#1C1917',
+                        'pop-purple': '#E0CCFF',
+                        'pop-yellow': '#FFEB85',
+                        'pop-pink': '#FFCce1',
+                    },
+                    borderRadius: { '4xl': '2.5rem' }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #FFFDF5; color: #1C1917; }
+        .prose p { margin-bottom: 1.5rem; line-height: 1.8; }
+        .prose h3 { font-weight: 800; font-size: 1.25rem; margin-top: 2rem; margin-bottom: 1rem; }
+        .prose ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; }
+        .prose img { border-radius: 1.5rem; margin-bottom: 1.5rem; width: 100%; }
+        .prose blockquote { border-left: 4px solid #E0CCFF; padding-left: 1rem; font-style: italic; color: #666; margin-bottom: 1.5rem; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- NAV -->
+    <nav class="fixed top-0 w-full z-50 px-4 py-6">
+        <div class="max-w-5xl mx-auto bg-white/70 backdrop-blur-lg border border-white/40 rounded-full px-6 py-3 flex justify-between items-center shadow-sm">
+            <a href="tulisan.html" class="font-bold text-sm flex items-center gap-2 hover:opacity-70 transition text-gray-500">
+                ← Kembali ke Daftar
+            </a>
+            <div class="font-extrabold text-lg tracking-tight">halo.user</div>
+            <div class="w-20"></div>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-20 px-6 max-w-2xl mx-auto">
+        
+        <!-- HEADER ARTIKEL -->
+        <div class="mb-10 text-center">
+            <span class="bg-pop-pink/50 text-pink-900 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">Journal</span>
+            <h1 class="text-3xl md:text-5xl font-extrabold mt-4 mb-4 leading-tight">Life Update: November Recap 🍂</h1>
+            <p class="text-gray-500 text-sm font-mono">Ditulis pada 30 Nov 2024 • Jurnal Bulanan</p>
+        </div>
+
+        <!-- ISI KONTEN -->
+        <article class="prose text-gray-700 text-lg">
+            <p>
+                Rasanya baru kemarin aku bilang "Halo November", eh sekarang udah harus bilang dadah. Bulan ini terasa aneh; di satu sisi terasa lambat karena hujan terus turun hampir tiap sore, tapi di sisi lain, tiba-tiba kalender udah nunjukin angka 30.
+            </p>
+            <p>
+                November ini temanya adalah <strong>"Mencoba hal baru"</strong>. Salah satunya ya website yang sedang kamu baca ini.
+            </p>
+
+            <h3>Highlight of The Month ✨</h3>
+            <p>
+                Jujur, pencapaian terbesar bulan ini adalah: <strong>Akhirnya aku punya Digital Garden sendiri!</strong>
+            </p>
+            <p>
+                Udah lama banget pengen punya tempat nulis yang nggak diatur algoritma, nggak ada iklan, dan desainnya semau jidat. Awalnya pusing banget ngurusin HTML dan CSS (terima kasih tutorial internet!), tapi puas banget pas lihat hasilnya jadi. Rasanya kayak punya rumah kecil di internet yang pintunya selalu terbuka buat siapa aja.
+            </p>
+
+            <h3>The Consuming List 📺📚</h3>
+            <ul>
+                <li><strong>Buku:</strong> Akhirnya namatin <em>Atomic Habits</em>. Telat banget ya? Tapi beneran nendang sih konsep 1%-nya.</li>
+                <li><strong>Musik:</strong> Lagi puter terus album barunya Nadin Amizah. Cocok banget buat nemenin coding sambil ngopi pas hujan.</li>
+                <li><strong>Tontonan:</strong> Rewatching <em>Reply 1988</em>. Comfort drama terbaik sepanjang masa.</li>
+            </ul>
+
+            <blockquote>
+                "November taught me that it's okay to slow down. Productivity isn't always about speed."
+            </blockquote>
+
+            <h3>Harapan buat Desember</h3>
+            <p>
+                Desember nanti pengen lebih santai. Mau ngurangin <em>screen time</em> (ironis, ngomong gini di website), dan mau nyoba resep masakan baru. Semoga kita semua menutup tahun ini dengan hati yang hangat ya.
+            </p>
+            <p>
+                Gimana November-mu? Seru atau capek? Cerita di bawah yuk! 👇
+            </p>
+        </article>
+
+        <!-- Divider -->
+        <div class="h-px bg-gray-200 w-full my-12"></div>
+
+        <!-- KOLOM KOMENTAR -->
+        <div class="bg-white p-6 md:p-8 rounded-4xl border border-gray-100 shadow-sm">
+            <h3 class="font-bold text-xl mb-6">Ceritakan November-mu 💬</h3>
+            
+            <form id="commentForm" class="mb-8">
+                <div class="flex gap-2 mb-3">
+                    <input type="text" id="nameInput" placeholder="Namamu" class="bg-gray-50 border border-gray-200 rounded-xl px-4 py-2 text-sm font-bold focus:outline-none w-1/3" required>
+                    <input type="text" id="msgInput" placeholder="Novemberku..." class="bg-gray-50 border border-gray-200 rounded-xl px-4 py-2 text-sm w-full focus:outline-none" required>
+                </div>
+                <button type="submit" id="submitBtn" class="bg-pop-dark text-white text-sm font-bold px-6 py-2 rounded-xl hover:bg-gray-800 transition">Kirim</button>
+            </form>
+
+            <div id="commentsList" class="space-y-4">
+                <p class="text-gray-400 text-sm text-center italic" id="emptyState">Belum ada cerita.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="text-center py-12 px-6 border-t border-gray-200/50 mt-10">
+        <div class="mb-6 flex justify-center gap-4">
+             <a href="#" class="w-10 h-10 bg-pop-dark text-white rounded-full flex items-center justify-center hover:bg-purple-500 transition text-xs font-bold">IG</a>
+             <a href="#" class="w-10 h-10 bg-pop-dark text-white rounded-full flex items-center justify-center hover:bg-blue-500 transition text-xs font-bold">TW</a>
+             <a href="#" class="w-10 h-10 bg-pop-dark text-white rounded-full flex items-center justify-center hover:bg-red-500 transition text-xs font-bold">YT</a>
+        </div>
+        <p class="font-manrope text-sm text-gray-400 font-medium">
+            &copy; 2025 My Personal Space.
+        </p>
+    </footer>
+
+    <!-- SCRIPT FIREBASE -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getFirestore, collection, addDoc, query, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+
+        // ID UNIK - PENTING! Beda file beda ID
+        const POST_ID = "november-recap-2024"; 
+
+        let firebaseConfig;
+        if (typeof __firebase_config !== 'undefined') {
+            firebaseConfig = JSON.parse(__firebase_config);
+        } else {
+            firebaseConfig = { apiKey: "API_KEY", projectId: "PROJECT_ID", appId: "APP_ID" }; 
+        }
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'my-personal-space';
+
+        async function initAuth() {
+            try {
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                } else {
+                    await signInAnonymously(auth);
+                }
+                loadComments();
+            } catch (error) { console.error("Auth Error", error); }
+        }
+        initAuth();
+
+        const list = document.getElementById('commentsList');
+        const emptyState = document.getElementById('emptyState');
+
+        function loadComments() {
+            const q = query(collection(db, 'artifacts', appId, 'public', 'data', 'post_comments'));
+            onSnapshot(q, (snapshot) => {
+                list.innerHTML = '';
+                let allComments = [];
+                snapshot.forEach((doc) => allComments.push(doc.data()));
+                
+                // Filter & Sort di JS
+                const myComments = allComments
+                    .filter(comment => comment.postId === POST_ID)
+                    .sort((a, b) => (b.createdAt?.seconds || 0) - (a.createdAt?.seconds || 0));
+
+                if (myComments.length === 0) {
+                    list.appendChild(emptyState);
+                    emptyState.style.display = 'block';
+                } else {
+                    emptyState.style.display = 'none';
+                    myComments.forEach((data) => {
+                        const item = document.createElement('div');
+                        item.className = "flex gap-3 text-sm animate-fade-in";
+                        item.innerHTML = `
+                            <div class="w-8 h-8 rounded-full bg-pop-pink flex-shrink-0 flex items-center justify-center font-bold text-xs text-pink-900">${data.name.charAt(0).toUpperCase()}</div>
+                            <div>
+                                <div class="flex items-baseline gap-2">
+                                    <span class="font-bold text-gray-900">${data.name ? data.name.replace(/</g, "&lt;") : ''}</span>
+                                    <span class="text-xs text-gray-400">${data.createdAt ? new Date(data.createdAt.seconds * 1000).toLocaleDateString() : 'Baru saja'}</span>
+                                </div>
+                                <p class="text-gray-600 mt-0.5 leading-relaxed">${data.message ? data.message.replace(/</g, "&lt;") : ''}</p>
+                            </div>
+                        `;
+                        list.appendChild(item);
+                    });
+                }
+            });
+        }
+
+        document.getElementById('commentForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('nameInput').value;
+            const message = document.getElementById('msgInput').value;
+            const btn = document.getElementById('submitBtn');
+
+            if(!name || !message) return;
+            btn.innerText = "...";
+            btn.disabled = true;
+
+            try {
+                await addDoc(collection(db, 'artifacts', appId, 'public', 'data', 'post_comments'), {
+                    postId: POST_ID,
+                    name: name,
+                    message: message,
+                    createdAt: serverTimestamp()
+                });
+                document.getElementById('commentForm').reset();
+                btn.innerText = "Kirim";
+                btn.disabled = false;
+            } catch (err) {
+                alert("Gagal kirim: " + err.message);
+                btn.innerText = "Kirim";
+                btn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
