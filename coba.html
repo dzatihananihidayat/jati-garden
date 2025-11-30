@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Space</title>
+    
+    <!-- Google Fonts: Manrope (Clean, Modern, Geometric) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Konfigurasi Tema -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Manrope', 'sans-serif'],
+                    },
+                    colors: {
+                        'soft-bg': '#FAFAF9',     /* Stone 50 - Background hangat sangat muda */
+                        'soft-text': '#1C1917',   /* Stone 900 - Text utama */
+                        'soft-gray': '#A8A29E',   /* Stone 400 - Text sekunder */
+                        'accent-purple': '#F3E8FF', /* Purple 100 */
+                        'accent-text-purple': '#9333EA',
+                        'accent-orange': '#FFEDD5', /* Orange 100 */
+                        'accent-text-orange': '#EA580C',
+                        'accent-blue': '#DBEAFE',   /* Blue 100 */
+                        'accent-text-blue': '#2563EB',
+                    },
+                    borderRadius: {
+                        '4xl': '2rem',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #FAFAF9;
+            color: #1C1917;
+            /* Smooth scrolling */
+            scroll-behavior: smooth;
+        }
+
+        /* Subtle Fade In Animation */
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Marquee yang lebih clean */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+        .marquee-content {
+            display: inline-block;
+            animation: scroll 30s linear infinite;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Card Hover Effect - Lebih halus */
+        .clean-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .clean-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.05), 0 8px 10px -6px rgb(0 0 0 / 0.01);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #E7E5E4;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-orange-200 selection:text-orange-900">
+
+    <!-- NAVBAR (Glassmorphism) -->
+    <nav class="fixed top-0 w-full z-50 px-6 py-6">
+        <div class="max-w-5xl mx-auto bg-white/80 backdrop-blur-md border border-white/20 rounded-full px-6 py-3 flex justify-between items-center shadow-sm">
+            <div class="font-extrabold text-lg tracking-tight">user.space</div>
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-stone-500">
+                <a href="#about" class="hover:text-black transition-colors">Tentang</a>
+                <a href="#tulisanku" class="hover:text-black transition-colors">Tulisan</a>
+                <a href="#buku" class="hover:text-black transition-colors">Buku</a>
+            </div>
+            <button class="bg-black text-white px-5 py-2 rounded-full font-semibold text-sm hover:bg-stone-800 transition shadow-lg shadow-stone-200">
+                Say Hello
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="pt-40 pb-20 px-6 fade-in-up">
+        <div class="max-w-3xl mx-auto text-center">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 text-accent-text-orange text-xs font-bold uppercase tracking-wide mb-6">
+                <span class="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
+                Welcome to my digital garden
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold leading-[1.1] mb-6 tracking-tight text-stone-900">
+                Sharing stories,<br>
+                <span class="text-stone-400">ideas, and life fragments.</span>
+            </h1>
+            <p class="text-lg text-stone-500 max-w-lg mx-auto mb-10 leading-relaxed font-light">
+                Hai, aku <span class="font-semibold text-stone-900">User</span>. Ini adalah sudut kecil internet tempat aku menyimpan apa yang aku pikirkan dan rasakan.
+            </p>
+        </div>
+    </header>
+
+    <!-- CLEAN MARQUEE -->
+    <div class="py-8 mb-10 opacity-60">
+        <div class="marquee-container">
+            <div class="marquee-content text-6xl font-extrabold text-stone-100 tracking-tighter select-none">
+                PERSONAL SPACE • CREATIVE OUTLET • BOOKSHELF • THOUGHTS • PERSONAL SPACE • CREATIVE OUTLET • BOOKSHELF • THOUGHTS •
+            </div>
+            <div class="marquee-content text-6xl font-extrabold text-stone-100 tracking-tighter select-none" aria-hidden="true">
+                PERSONAL SPACE • CREATIVE OUTLET • BOOKSHELF • THOUGHTS • PERSONAL SPACE • CREATIVE OUTLET • BOOKSHELF • THOUGHTS •
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN BENTO GRID -->
+    <main class="max-w-5xl mx-auto px-6 pb-24">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+
+            <!-- KOTAK 1: ABOUT (Clean White Card) -->
+            <div id="about" class="md:col-span-2 md:row-span-2 bg-white rounded-4xl p-8 shadow-sm clean-card flex flex-col justify-between h-full relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-orange-50 to-purple-50 rounded-full blur-3xl opacity-60 -translate-y-1/2 translate-x-1/2"></div>
+                
+                <div>
+                    <h2 class="text-2xl font-bold mb-4">The Person Behind</h2>
+                    <p class="text-stone-600 leading-relaxed text-sm md:text-base">
+                        Suka kopi di pagi hari dan ketenangan di malam hari. Aku percaya bahwa internet seharusnya menjadi tempat yang lebih personal, bukan sekadar angka dan algoritma.
+                        <br><br>
+                        Saat ini sedang fokus belajar hal baru, menumpuk buku yang belum dibaca, dan menikmati proses menjadi manusia.
+                    </p>
+                </div>
+                
+                <div class="mt-8 flex gap-3">
+                     <span class="px-4 py-2 bg-stone-50 rounded-xl text-xs font-bold text-stone-500">INFJ</span>
+                     <span class="px-4 py-2 bg-stone-50 rounded-xl text-xs font-bold text-stone-500">Writer</span>
+                     <span class="px-4 py-2 bg-stone-50 rounded-xl text-xs font-bold text-stone-500">Dreamer</span>
+                </div>
+            </div>
+
+            <!-- KOTAK 2: CURRENTLY (Status) -->
+            <div class="bg-accent-purple/30 rounded-4xl p-6 clean-card flex flex-col justify-between border border-purple-100">
+                <div class="flex justify-between items-start">
+                    <span class="text-xs font-bold text-accent-text-purple uppercase tracking-wider">Mood</span>
+                    <div class="w-2 h-2 bg-purple-400 rounded-full"></div>
+                </div>
+                <div>
+                    <div class="text-4xl mb-2">🌱</div>
+                    <div class="font-bold text-stone-800">Growing Phase</div>
+                    <div class="text-xs text-stone-500 mt-1">Learning step by step</div>
+                </div>
+            </div>
+
+            <!-- KOTAK 3: SOCIAL LINKS -->
+            <div class="bg-stone-900 rounded-4xl p-6 clean-card flex flex-col justify-center items-center text-center text-white relative overflow-hidden group cursor-pointer">
+                <div class="absolute inset-0 bg-gradient-to-tr from-purple-600 to-orange-500 opacity-0 group-hover:opacity-20 transition duration-500"></div>
+                <h3 class="font-bold text-xl mb-1">Let's Connect</h3>
+                <p class="text-stone-400 text-xs mb-4">Find me on other platforms</p>
+                <div class="flex gap-2">
+                    <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-xs">IG</div>
+                    <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-xs">X</div>
+                    <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-xs">LN</div>
+                </div>
+            </div>
+
+            <!-- KOTAK 4: TULISAN (List Clean) -->
+            <div id="tulisanku" class="md:col-span-2 bg-white rounded-4xl p-8 shadow-sm clean-card border border-stone-50">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="font-bold text-xl">Recent Thoughts</h2>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-stone-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" /></svg>
+                </div>
+                <div class="space-y-6">
+                    <div class="group cursor-pointer">
+                        <div class="flex justify-between items-baseline mb-1">
+                            <h3 class="font-bold text-stone-800 group-hover:text-accent-text-orange transition">Slow Living di Kota Besar</h3>
+                            <span class="text-xs text-stone-400">Nov 20</span>
+                        </div>
+                        <p class="text-sm text-stone-500 line-clamp-1">Mencoba mencari ketenangan di tengah hiruk pikuk klakson...</p>
+                    </div>
+                    <hr class="border-stone-100">
+                    <div class="group cursor-pointer">
+                        <div class="flex justify-between items-baseline mb-1">
+                            <h3 class="font-bold text-stone-800 group-hover:text-accent-text-orange transition">Digital Minimalism</h3>
+                            <span class="text-xs text-stone-400">Oct 15</span>
+                        </div>
+                        <p class="text-sm text-stone-500 line-clamp-1">Menghapus aplikasi yang tidak perlu dan fokus pada esensi.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KOTAK 5: BOOKSHELF (Visual Minimalis) -->
+            <div id="buku" class="md:col-span-2 bg-white rounded-4xl p-8 shadow-sm clean-card border border-stone-50 flex flex-col">
+                <h2 class="font-bold text-xl mb-6">Currently Reading</h2>
+                <div class="flex gap-6 items-center flex-1">
+                    <!-- Book Cover Placeholder (CSS Art) -->
+                    <div class="w-24 h-32 bg-stone-200 rounded-r-md rounded-l-sm shadow-inner relative flex-shrink-0">
+                        <div class="absolute left-2 top-0 bottom-0 w-0.5 bg-stone-300/50"></div>
+                        <div class="absolute inset-0 flex items-center justify-center text-stone-400 text-2xl font-serif italic">A</div>
+                    </div>
+                    <div>
+                        <div class="text-xs font-bold text-accent-text-blue bg-blue-50 px-2 py-1 rounded-md inline-block mb-2">Fiction</div>
+                        <h3 class="font-bold text-lg leading-tight mb-1">Norwegian Wood</h3>
+                        <p class="text-sm text-stone-500 mb-3">Haruki Murakami</p>
+                        <div class="w-full bg-stone-100 rounded-full h-1.5 overflow-hidden">
+                            <div class="bg-stone-800 h-1.5 rounded-full" style="width: 65%"></div>
+                        </div>
+                        <span class="text-xs text-stone-400 mt-1 inline-block">65% Completed</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KOTAK 6: INTERESTS (Pills) -->
+            <div class="md:col-span-4 bg-white rounded-4xl p-8 shadow-sm clean-card border border-stone-50 text-center">
+                 <h2 class="font-bold text-xl mb-6">Things I Love</h2>
+                 <div class="flex flex-wrap justify-center gap-2">
+                    <span class="px-5 py-2.5 rounded-full bg-stone-50 text-stone-600 text-sm font-semibold hover:bg-stone-100 transition cursor-default">Photography 📸</span>
+                    <span class="px-5 py-2.5 rounded-full bg-stone-50 text-stone-600 text-sm font-semibold hover:bg-stone-100 transition cursor-default">Indie Folk 🎵</span>
+                    <span class="px-5 py-2.5 rounded-full bg-stone-50 text-stone-600 text-sm font-semibold hover:bg-stone-100 transition cursor-default">Matcha Latte 🍵</span>
+                    <span class="px-5 py-2.5 rounded-full bg-stone-50 text-stone-600 text-sm font-semibold hover:bg-stone-100 transition cursor-default">UI Design 🎨</span>
+                    <span class="px-5 py-2.5 rounded-full bg-stone-50 text-stone-600 text-sm font-semibold hover:bg-stone-100 transition cursor-default">Cats 🐈</span>
+                    <span class="px-5 py-2.5 rounded-full bg-stone-50 text-stone-600 text-sm font-semibold hover:bg-stone-100 transition cursor-default">Rainy Days 🌧️</span>
+                 </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- SIMPLE FOOTER -->
+    <footer class="text-center py-12 px-6 border-t border-stone-200/50">
+        <p class="font-manrope text-sm text-stone-400 font-medium">
+            &copy; 2024 User Space. Design by Gemini.
+        </p>
+    </footer>
+
+</body>
+</html>

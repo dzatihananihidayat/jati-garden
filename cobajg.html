@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duniaku ✨</title>
+    
+    <!-- Google Fonts: Outfit (Modern & Friendly) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (via CDN untuk styling cepat & modern) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Konfigurasi Tema -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        'pop-bg': '#FFFDF5',      /* Cream background */
+                        'pop-dark': '#1A1A1A',    /* Teks hitam soft */
+                        'pop-purple': '#E0CCFF',  /* Aksen Ungu */
+                        'pop-yellow': '#FFEB85',  /* Aksen Kuning */
+                        'pop-pink': '#FFCce1',    /* Aksen Pink */
+                        'pop-blue': '#C4E4FF',    /* Aksen Biru */
+                    },
+                    boxShadow: {
+                        'retro': '4px 4px 0px 0px #1A1A1A', /* Bayangan tajam ala retro */
+                        'retro-hover': '2px 2px 0px 0px #1A1A1A',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom CSS untuk animasi dan detail */
+        body {
+            background-color: #FFFDF5;
+            color: #1A1A1A;
+            overflow-x: hidden;
+        }
+
+        /* Animasi Marquee (Teks Berjalan) */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .marquee-content {
+            display: inline-block;
+            animation: scroll 20s linear infinite;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Animasi Mengambang (Floating) */
+        .float-anim {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Styling Scrollbar biar lucu */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FFFDF5;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1A1A1A;
+            border-radius: 5px;
+            border: 2px solid #FFFDF5;
+        }
+
+        .card-hover {
+            transition: all 0.2s ease;
+        }
+        .card-hover:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px 0px #1A1A1A;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-pop-yellow selection:text-black">
+
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 w-full z-50 px-4 py-4">
+        <div class="max-w-4xl mx-auto bg-white border-2 border-pop-dark rounded-full px-6 py-3 flex justify-between items-center shadow-retro">
+            <div class="font-bold text-xl tracking-tight">Halo! 👋</div>
+            <div class="space-x-4 text-sm font-semibold hidden sm:block">
+                <a href="#about" class="hover:text-purple-600 transition">Tentang</a>
+                <a href="#tulisanku" class="hover:text-purple-600 transition">Tulisan</a>
+                <a href="#buku" class="hover:text-purple-600 transition">Buku</a>
+            </div>
+            <button class="bg-pop-dark text-white px-4 py-1.5 rounded-full font-bold text-sm hover:bg-purple-600 transition border border-transparent">
+                Kontak
+            </button>
+        </div>
+    </nav>
+
+    <!-- HEADER / HERO SECTION -->
+    <header class="pt-32 pb-10 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-block bg-pop-yellow border-2 border-pop-dark px-4 py-1 rounded-full text-xs font-bold mb-4 rotate-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                WELCOME TO MY DIGITAL HOME
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
+                Space Kecilku untuk<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">Bercerita & Berkarya</span>
+            </h1>
+            <p class="text-lg text-gray-600 max-w-xl mx-auto mb-8">
+                Hai, aku <span class="font-bold bg-pop-blue px-1 border border-black rounded-md">User</span>! Di sini aku menumpahkan isi kepala, buku yang kubaca, dan hal-hal random yang aku suka.
+            </p>
+            
+            <!-- Stiker Hiasan -->
+            <div class="flex justify-center gap-4 text-4xl mt-4">
+                <span class="float-anim" style="animation-delay: 0s;">✨</span>
+                <span class="float-anim" style="animation-delay: 0.5s;">🐱</span>
+                <span class="float-anim" style="animation-delay: 1s;">🍕</span>
+                <span class="float-anim" style="animation-delay: 1.5s;">🎧</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- MARQUEE (Teks Berjalan) -->
+    <div class="border-y-2 border-pop-dark bg-pop-purple py-3 mb-16 rotate-1 transform mx-[-10px] shadow-retro">
+        <div class="marquee-container font-bold text-lg uppercase tracking-wider">
+            <div class="marquee-content">
+                • My Personal Space • Tulisanku • Review Buku • Hobi • Jalan-jalan • Musik Favorit • My Personal Space • Tulisanku • Review Buku • Hobi • Jalan-jalan • Musik Favorit 
+            </div>
+            <div class="marquee-content" aria-hidden="true">
+                • My Personal Space • Tulisanku • Review Buku • Hobi • Jalan-jalan • Musik Favorit • My Personal Space • Tulisanku • Review Buku • Hobi • Jalan-jalan • Musik Favorit 
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN GRID CONTENT (BENTO GRID) -->
+    <main class="max-w-4xl mx-auto px-4 pb-20">
+        <div class="grid grid-cols-1 md:grid-cols-6 gap-6">
+
+            <!-- KOTAK 1: ABOUT ME (Lebar Penuh di HP, Setengah di Laptop) -->
+            <div id="about" class="md:col-span-4 bg-white border-2 border-pop-dark rounded-3xl p-8 shadow-retro card-hover relative overflow-hidden group">
+                <div class="absolute -right-10 -top-10 bg-pop-yellow w-32 h-32 rounded-full opacity-50 blur-2xl group-hover:scale-150 transition duration-500"></div>
+                <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+                    👾 Tentang Aku
+                </h2>
+                <p class="text-gray-700 leading-relaxed">
+                    Aku adalah seorang penikmat kopi yang suka melamun di sore hari. Kalau nggak lagi sibuk dengan pekerjaan, biasanya aku menghabiskan waktu dengan membaca buku fiksi atau ngobrol sama kucingku.
+                    <br><br>
+                    Website ini dibuat supaya aku punya "rumah" sendiri di internet, bebas dari algoritma media sosial. Selamat menjelajah!
+                </p>
+            </div>
+
+            <!-- KOTAK 2: STATUS / HARI INI (Kotak Kecil) -->
+            <div class="md:col-span-2 bg-pop-blue border-2 border-pop-dark rounded-3xl p-6 shadow-retro card-hover flex flex-col justify-center items-center text-center">
+                <h3 class="font-bold text-sm uppercase mb-2">Mood Hari Ini</h3>
+                <div class="text-6xl mb-2 float-anim">⚡️</div>
+                <span class="font-medium bg-white px-3 py-1 rounded-full border border-black text-xs">Semangat 45!</span>
+            </div>
+
+            <!-- KOTAK 3: TULISAN TERBARU (Memanjang ke bawah) -->
+            <div id="tulisanku" class="md:col-span-3 bg-white border-2 border-pop-dark rounded-3xl p-6 shadow-retro card-hover">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold">📝 Tulisanku</h2>
+                    <a href="#" class="text-xs font-bold underline decoration-2 decoration-pop-pink hover:text-pink-500">Lihat Semua</a>
+                </div>
+                
+                <div class="space-y-4">
+                    <!-- Item Tulisan 1 -->
+                    <article class="group cursor-pointer">
+                        <div class="text-xs text-gray-500 font-mono mb-1">01 Des 2024</div>
+                        <h3 class="font-bold text-lg group-hover:text-purple-600 transition">Kenapa Senin itu Sebenarnya Seru</h3>
+                        <p class="text-sm text-gray-600 line-clamp-2 mt-1">
+                            Sebuah opini tidak populer tentang hari Senin dan bagaimana cara bertahan hidup...
+                        </p>
+                        <div class="w-full h-0.5 bg-gray-100 mt-4 group-hover:bg-pop-purple transition"></div>
+                    </article>
+
+                    <!-- Item Tulisan 2 -->
+                    <article class="group cursor-pointer">
+                        <div class="text-xs text-gray-500 font-mono mb-1">28 Nov 2024</div>
+                        <h3 class="font-bold text-lg group-hover:text-purple-600 transition">Review Kopi Susu Tetangga</h3>
+                        <p class="text-sm text-gray-600 line-clamp-2 mt-1">
+                            Mencoba kopi susu yang lagi viral, apakah rasanya sesuai ekspektasi?
+                        </p>
+                    </article>
+                </div>
+            </div>
+
+            <!-- KOTAK 4: BUKU YANG DIBACA (Kotak Warna-warni) -->
+            <div id="buku" class="md:col-span-3 bg-pop-pink border-2 border-pop-dark rounded-3xl p-6 shadow-retro card-hover">
+                <h2 class="text-2xl font-bold mb-4 text-pop-dark">📚 Rak Buku</h2>
+                <div class="grid grid-cols-2 gap-4">
+                    <!-- Buku 1 -->
+                    <div class="bg-white border-2 border-black rounded-xl p-3 transform rotate-2 hover:rotate-0 transition duration-300">
+                        <div class="bg-gray-200 h-24 rounded-md mb-2 flex items-center justify-center text-2xl">📖</div>
+                        <h4 class="font-bold text-sm leading-tight">Atomic Habits</h4>
+                        <div class="text-yellow-500 text-xs mt-1">★★★★★</div>
+                    </div>
+                     <!-- Buku 2 -->
+                     <div class="bg-white border-2 border-black rounded-xl p-3 transform -rotate-1 hover:rotate-0 transition duration-300">
+                        <div class="bg-gray-800 h-24 rounded-md mb-2 flex items-center justify-center text-2xl">🚀</div>
+                        <h4 class="font-bold text-sm leading-tight">Project Hail Mary</h4>
+                        <div class="text-yellow-500 text-xs mt-1">★★★★☆</div>
+                    </div>
+                </div>
+                <div class="mt-4 text-center">
+                    <span class="text-xs font-bold italic">Sedang membaca: Filosofi Teras</span>
+                </div>
+            </div>
+
+            <!-- KOTAK 5: HOBI (Grid Kecil-kecil) -->
+            <div class="md:col-span-6 bg-white border-2 border-pop-dark rounded-3xl p-8 shadow-retro">
+                <h2 class="text-2xl font-bold mb-6 text-center">🎨 My Interest & Hobbies</h2>
+                <div class="flex flex-wrap justify-center gap-3">
+                    <span class="px-4 py-2 rounded-full border-2 border-black bg-pop-yellow font-bold text-sm hover:scale-110 transition cursor-default">Photography 📸</span>
+                    <span class="px-4 py-2 rounded-full border-2 border-black bg-pop-purple font-bold text-sm hover:scale-110 transition cursor-default">Gaming 🎮</span>
+                    <span class="px-4 py-2 rounded-full border-2 border-black bg-pop-blue font-bold text-sm hover:scale-110 transition cursor-default">Cooking 🍳</span>
+                    <span class="px-4 py-2 rounded-full border-2 border-black bg-pop-pink font-bold text-sm hover:scale-110 transition cursor-default">Coding 💻</span>
+                    <span class="px-4 py-2 rounded-full border-2 border-black bg-white font-bold text-sm hover:scale-110 transition cursor-default">Traveling ✈️</span>
+                    <span class="px-4 py-2 rounded-full border-2 border-black bg-green-200 font-bold text-sm hover:scale-110 transition cursor-default">Planting 🌱</span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="text-center py-10 pb-20">
+        <div class="mb-4 flex justify-center gap-4">
+             <a href="#" class="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center hover:bg-purple-600 transition">IG</a>
+             <a href="#" class="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center hover:bg-blue-500 transition">TW</a>
+             <a href="#" class="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center hover:bg-red-500 transition">YT</a>
+        </div>
+        <p class="text-sm font-semibold text-gray-500">
+            Dibuat dengan 💖 dan segelas kopi.<br>
+            &copy; 2024 My Personal Space.
+        </p>
+    </footer>
+
+</body>
+</html>
